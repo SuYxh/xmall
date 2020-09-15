@@ -2,6 +2,7 @@
   <div id="home">
     <nav-bar class="nav-bar"><div slot="center">购物街</div></nav-bar>
     <HomeSwiper :banners="banners"></HomeSwiper>
+    <RecommendView :recommends="recommends"></RecommendView>
   </div>
 </template>
 
@@ -9,13 +10,15 @@
 // @ is an alias to /src
 import NavBar from '@/components/common/navbar/NavBar'
 import HomeSwiper from './childComps/HomeSwiper'
+  import RecommendView from './childComps/RecommendView'
 import { getHomeMultidata } from '@/api/home.js'
  
 export default {
   name: 'Home',
   components:{
     NavBar,
-    HomeSwiper
+    HomeSwiper,
+    RecommendView
   },
   data() {
     return {
@@ -35,7 +38,7 @@ export default {
       this.recommends = res.data.recommend.list
       // console.log(res)
       console.log(res.data.banner.list)
-      // console.log(res.data.recommend.list)
+      console.log(res.data.recommend.list)
     })
   },
   data() {
